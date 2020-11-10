@@ -1,0 +1,44 @@
+/* Lara */
+
+
+
+
+
+
+
+
+
+/* John */
+
+
+
+
+
+
+
+
+
+/* Alfredo */
+
+
+
+
+
+
+
+
+
+/* Shelsy */
+
+
+/* styling specifically for the map */
+body { 
+    margin:0; 
+    padding:0; 
+}
+#map { 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    width:100%; 
+}
