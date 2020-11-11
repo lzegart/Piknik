@@ -13,6 +13,7 @@ $(document).foundation();
 
 // key from mapbox api
 let myToken = "sk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMzBuemsxOHczMnNrODF6M2lveHc1In0.WXY65kiQoG9rDXMxzd5qEg";
+let tomKey = "yrlw2N38GKc3iSGnqvnQNxPQUsVQuVAh"
 // target user address
 let input = document.querySelector("input");
 // target user miles
@@ -35,6 +36,8 @@ document.querySelector("#planPiknik").addEventListener("click", function(e){
   let place = placeInput.value;
   console.log(place);
 
+  
+
 
     fetch(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${startingPoint}.json?access_token=${myToken}`
@@ -54,7 +57,7 @@ document.querySelector("#planPiknik").addEventListener("click", function(e){
 
       // find a restaurant near startingPoint 
       fetch(
-        `https://api.tomtom.com/search/2/poiSearch/${queryFood}.json?lat=${lat}&lon=${lon}&radius=${miles}&categorySet=${food}&key=yrlw2N38GKc3iSGnqvnQNxPQUsVQuVAh`
+        `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${food}&key=${tomKey}`
       )
       .then(function(response) {
         return response.json();
@@ -65,7 +68,7 @@ document.querySelector("#planPiknik").addEventListener("click", function(e){
 
       // find a point of interest near startingPoint
       fetch(
-        `https://api.tomtom.com/search/2/poiSearch/${queryPlace}.json?lat=${lat}&lon=${lon}&radius=${miles}&categorySet=${place}&key=yrlw2N38GKc3iSGnqvnQNxPQUsVQuVAh`
+        `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${place}&key=${tomKey}`
       )
       .then(function(response) {
         return response.json();
