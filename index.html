@@ -19,7 +19,7 @@
 
     <!-- Alfredo -->
 
-    <div class="card" style="width: 300px;">
+    <!-- <div class="card" style="width: 300px;">
       <div class="card-divider">
         This is a header
       </div>
@@ -28,15 +28,45 @@
         <h4>This is a card.</h4>
         <p>It has an easy to override visual style, and is appropriately subdued.</p>
       </div>
-    </div>
+    </div> -->
 
-    <p><button class="button" data-open="openingModal">Click me for a modal</button></p>
+    <p><button class="button" data-open="openingModal">PIKNIK PLANNER</button></p>
 
     <!-- This is the first Form modal -->
     <div class="reveal" id="openingModal" data-reveal>
       <h1>Form</h1>
-      
-      <button class="button" data-open="formModal">Click me for another modal!</button>
+      <form>
+        <label>Starting Location
+          <input type="text" placeholder="City/ Address" aria-describedby="exampleHelpText">
+        </label>
+        <!-- <p class="help-text" id="exampleHelpText">Here's how you use this input field!</p> -->
+    
+        <label>Distance Range
+          <select>
+            <option value="select">Select Option</option>
+            <option value="five-mile">5 mile</option>
+            <option value="ten-mile">10 mile</option>
+          </select>
+        </label>
+        <label>Food Preference
+          <select>
+            <option value="select">Select Option</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="cafe">Cafe</option>
+            <option value="bar">Bar</option>
+          </select>
+        </label>
+        <label>Destination Type
+          <select>
+            <option value="select">Select Option</option>
+            <option value="park-and-rec">Park and Recreation Area</option>
+            <option value="tourist-attraction">Tourist Attraction</option>
+            <option value="trails">Trails</option>
+          </select>
+        </label>
+  
+      </form>
+      <button class="button" data-open="formModal">PLAN MY PIKNIK!</button>
       <button class="close-button" data-close aria-label="Close reveal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -77,17 +107,26 @@
         </div>
       </div>
       
-      <button class="button" data-open="resultsModal">Click me for another modal!</button>
+      <button class="button" data-open="resultsModal">MAP MY PIKNIK!</button>
       <button class="close-button" data-close aria-label="Close reveal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
     <!-- This is the nested Map modal -->
-    <div class="reveal" id="resultsModal" data-reveal>
+    <div class="reveal-small" id="resultsModal" data-reveal>
       <h1>Map</h1>
-      <div id="map"></div>
-      <button class="button" data-open="mapModal">Click me for another modal!</button>
+      <div class="card" style="width: 300px;">
+        <div class="card-divider">
+          This is a header
+        </div>
+        <div id="mapBox"></div>
+        <div class="card-section">
+          <h4>This is a card.</h4>
+          <p>It has an easy to override visual style, and is appropriately subdued.</p>
+        </div>
+      </div>
+      <button class="button" data-open="mapModal">REPACK MY PIKNIK!</button>
       <button class="close-button" data-close aria-label="Close reveal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
