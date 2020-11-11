@@ -6,6 +6,8 @@ console.log("Hey guys!");
 
 // Alfredo
 
+$(document).foundation();
+
 // Shelsy
 
 
