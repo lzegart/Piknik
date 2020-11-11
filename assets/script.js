@@ -8,6 +8,7 @@ console.log("Hey guys!");
 
 // Shelsy
 
+
 // experiment with different addresses. Very case sensitive.
 // entering an address will render its geographic coords (AKA forward geocoding)
 // entering coords will render its varying address (AKA reverse geocoding)
