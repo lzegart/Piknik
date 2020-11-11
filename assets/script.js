@@ -21,7 +21,7 @@ L.mapbox.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrN
 
 let geocoder = L.mapbox.geocoder('mapbox.places');
 
-let map = L.mapbox.map('map').addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+let map = L.mapbox.map('mapBox').addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 
 geocoder.query(`${currentLocation}`, showMap);
 
