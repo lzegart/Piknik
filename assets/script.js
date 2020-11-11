@@ -16,25 +16,25 @@ $(document).foundation();
 // entering coords will render its varying address (AKA reverse geocoding)
 let currentLocation = "633 Sinclair Dr, San Jose, CA";
 
-// // experimenting with the map created using mapbox.js
-// L.mapbox.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`
+// experimenting with the map created using mapbox.js
+L.mapbox.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`
 
-// let geocoder = L.mapbox.geocoder('mapbox.places');
+let geocoder = L.mapbox.geocoder('mapbox.places');
 
-// let map = L.mapbox.map('map').addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+let map = L.mapbox.map('map').addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 
-// geocoder.query(`${currentLocation}`, showMap);
+geocoder.query(`${currentLocation}`, showMap);
 
-// function showMap(err, data) {
-//     // The geocoder can return an area, like a city, or a
-//     // point, like an address. Here we handle both cases,
-//     // by fitting the map bounds to an area or zooming to a point.
-//     if (data.lbounds) {
-//         map.fitBounds(data.lbounds);
-//     } else if (data.latlng) {
-//         map.setView([data.latlng[0], data.latlng[1]], 13);
-//     }
-// }
+function showMap(err, data) {
+    // The geocoder can return an area, like a city, or a
+    // point, like an address. Here we handle both cases,
+    // by fitting the map bounds to an area or zooming to a point.
+    if (data.lbounds) {
+        map.fitBounds(data.lbounds);
+    } else if (data.latlng) {
+        map.setView([data.latlng[0], data.latlng[1]], 13);
+    }
+}
 
 // experimenting with the geocoding api from mapbox website
 // PLEASE DO NOT DELETE THIS SECRET KEY
