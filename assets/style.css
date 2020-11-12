@@ -46,8 +46,6 @@ body {
 
 
 /* styling specifically for the map */
-<<<<<<< HEAD
-=======
 body { 
     margin:0; 
     padding:0; 
@@ -58,7 +56,6 @@ body {
     max-width:100%;
 }
 
->>>>>>> 7fa949517b142de0f798754c7cc63075265a8034
 #map { 
     position: absolute; 
     top:0; 
