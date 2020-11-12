@@ -22,130 +22,139 @@
     <!-- Alfredo -->
 
 
+    <section class="main">
+      <p>
+        <button class="button" data-open="openingModal">PIKNIK PLANNER</button>
+      </p>
 
-    <p>
-      <button class="button" data-open="openingModal">PIKNIK PLANNER</button>
-    </p>
+      <!-- This is the first Form modal -->
+      <div class="reveal" id="openingModal" data-reveal>
+        <h1>Form</h1>
+        <form>
+          <label
+            >Starting Location
+            <input
+              id="inputText" type="text"
+              placeholder="City/ Address"
+              aria-describedby="exampleHelpText"
+            />
+          </label>
 
-    <!-- This is the first Form modal -->
-    <div class="reveal" id="openingModal" data-reveal>
-      <h1>Form</h1>
-      <form>
-        <label
-          >Starting Location
-          <input
-            id="inputText" type="text"
-            placeholder="City/ Address"
-            aria-describedby="exampleHelpText"
-          />
-        </label>
-
-        <label
-          >Distance Range
-          <select id="miles">
-            <option value="select">Select Option</option>
-            <option value="8046">5 mile</option>
-            <option value="16093">10 mile</option>
-          </select>
-        </label>
-        <label
-          >Food Preference
-          <select id="foods">
-            <option value="select">Select Option</option>
-            <option value="7315">Restaurant</option>
-            <option value="9376">Cafe</option>
-            <option value="9379004">Bar</option>
-          </select>
-        </label>
-        <label
-          >Destination Type
-          <select id="places">
-            <option value="select">Select Option</option>
-            <option value="9362">Park and Recreation Area</option>
-            <option value="7376">Tourist Attraction</option>
-            <option value="7302">Trails</option>
-          </select>
-        </label>
-      </form>
-      <button id="planPiknik" class="button" data-open="formModal">PLAN MY PIKNIK!</button>
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close reveal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+          <label
+            >Distance Range
+            <select id="miles">
+              <option value="select">Select Option</option>
+              <option value="8046">5 mile</option>
+              <option value="16093">10 mile</option>
+            </select>
+          </label>
+          <label
+            >Food Preference
+            <select id="foods">
+              <option value="select">Select Option</option>
+              <option value="7315">Restaurant</option>
+              <option value="9376">Cafe</option>
+              <option value="9379004">Bar</option>
+            </select>
+          </label>
+          <label
+            >Destination Type
+            <select id="places">
+              <option value="select">Select Option</option>
+              <option value="9362">Park and Recreation Area</option>
+              <option value="7376">Tourist Attraction</option>
+              <option value="7302">Trails</option>
+            </select>
+          </label>
+        </form>
+        <button id="planPiknik" class="button" data-open="formModal">PLAN MY PIKNIK!</button>
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close reveal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
 
 
-    <!-- This is the nested Results modal -->
-    <div class="reveal" id="formModal" data-reveal>
-      <h1>Results</h1>
-      <div class="grid-container">
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-          <div class="cell">
-            <div class="card">
-              <div class="card-section">
-                <h4>This is a row of cards.</h4>
-                <textarea></textarea>
+      <!-- This is the nested Results modal -->
+      <div class="reveal" id="formModal" data-reveal>
+        <h1>Results</h1>
+        <div class="grid-container">
+          <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+            <div class="cell">
+              <div class="card">
+                <div class="card-section">
+                  <h4>This is a row of cards.</h4>
+                  <textarea></textarea>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="cell">
-            <div class="card">
-              <div class="card-section">
-                <h4>This is a card.</h4>
-                <textarea></textarea>
+            <div class="cell">
+              <div class="card">
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <textarea></textarea>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="cell">
-            <div class="card">
-              <div class="card-section">
-                <h4>This is a card.</h4>
-                <textarea></textarea>
+            <div class="cell">
+              <div class="card">
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <textarea></textarea>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <button class="button" data-open="resultsModal">MAP MY PIKNIK!</button>
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close reveal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
-      <button class="button" data-open="resultsModal">MAP MY PIKNIK!</button>
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close reveal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <!-- This is the nested Map modal -->
-    <div class="reveal-large" id="resultsModal" data-reveal>
-      <h1>Map</h1>
-      <div class="card" style="width: 300px">
-        <div class="card-divider">This is a header</div>
-        <div class="card-section">
-          <h4>This is a card.</h4>
-          <p>
-            It has an easy to override visual style, and is appropriately
-            subdued.
-          </p>
+      <!-- This is the nested Map modal -->
+      <div class="reveal-large" id="resultsModal" data-reveal>
+        <h1>Map</h1>
+        <div class="card" style="width: 300px">
+          <div class="card-divider">This is a header</div>
+          <div class="card-section">
+            <h4>This is a card.</h4>
+            <p>
+              It has an easy to override visual style, and is appropriately
+              subdued.
+            </p>
+          </div>
         </div>
+        <button class="button" data-open="mapModal">REPACK MY PIKNIK!</button>
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close reveal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <button class="button" data-open="mapModal">REPACK MY PIKNIK!</button>
-      <button
-        class="close-button"
-        data-close
-        aria-label="Close reveal"
-        type="button"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+    </section>
+
+    <!-- This is a Sticky Footer -->
+    <div class="cell small-6 right" data-sticky-container>
+      <div class="sticky" data-sticky data-stick-to="bottom">
+        <p>this is a sticky footer</p>
+      </div>
     </div>
+
 
     <!-- <div id="mapBox"></div> -->
 
