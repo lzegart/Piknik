@@ -1,10 +1,24 @@
+body { 
+    margin:0; 
+    padding:0; 
+    background-image: url("./images/Piknik_Background.png");
+    background-size: cover;
+}
+
 /* Lara */
+#button-container {
+    text-align: center;
+    padding: 50px;
+   
+} 
 
-
-
-
-
-
+#start-piknik {
+    background-color: rgba(8, 36, 2, 0.966);
+    display: inline-block;
+    width: 25%;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 
 
@@ -32,13 +46,6 @@
 
 
 /* styling specifically for the map */
-body { 
-    margin:0; 
-    padding:0; 
-    background-image: url("./images/Piknik_Background.png");
-    background-size: cover;
-}
-
 #map { 
     position: absolute; 
     top:0; 
