@@ -35,8 +35,11 @@
 body { 
     margin:0; 
     padding:0; 
-    background-image: url("./images/Piknik_Background.png");
-    background-size: cover;
+}
+
+.background {
+    max-height:100%;
+    max-width:100%;
 }
 
 #map { 
