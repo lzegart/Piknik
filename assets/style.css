@@ -46,9 +46,31 @@ body {
 
 
 /* styling specifically for the map */
+<<<<<<< HEAD
+=======
+body { 
+    margin:0; 
+    padding:0; 
+}
+
+.background {
+    max-height:100%;
+    max-width:100%;
+}
+
+>>>>>>> 7fa949517b142de0f798754c7cc63075265a8034
 #map { 
     position: absolute; 
     top:0; 
     bottom:0; 
     width:100%; 
+}
+
+/* Sticky Footer styling */
+.sticky {
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%;
+    color: gray;
+    text-align: center;
+    padding-top: 10px;
 }
