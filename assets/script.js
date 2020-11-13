@@ -58,13 +58,16 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           return response.json();
         })
         .then(function (data) {
+      
+          let randomFoodArray = [];
 
           for (let i = 0; i < data.results.length; i++) {
-            let randomFoodArray = data.results[i].poi.name;
-            console.log(randomFoodArray);
+            let randomFood = data.results[i].poi.name;
+            randomFoodArray.push(randomFood);
           }
-          // let randomFoodArray = data.results[0].poi.name;
-          // console.log(randomFoodArray);
+
+          console.log(randomFoodArray);
+
         });
 
       // find a point of interest near startingPoint
