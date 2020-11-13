@@ -1,4 +1,4 @@
-console.log("Hey guys!");
+
 
 // Lara
 
@@ -28,13 +28,13 @@ document.querySelector("#planPiknik").addEventListener("click", function(e){
   e.preventDefault();
   // get values of all options they chose
   let startingPoint = input.value;
-  console.log(startingPoint);
+  console.log("This is the starting point input: " + startingPoint);
   let miles = mileInput.value;
-  console.log(miles);
+  console.log("This is the miles converted into meters: " + miles);
   let food = foodInput.value;
-  console.log(food);
+  console.log("This is the users food stop preference category set: " + food);
   let place = placeInput.value;
-  console.log(place);
+  console.log("This is the users destination preference category set: " + place);
 
   
 
@@ -46,13 +46,12 @@ document.querySelector("#planPiknik").addEventListener("click", function(e){
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
   
       // set variables for lat and lon of startingPoint
       let lon = data.features[1].geometry.coordinates[0]
       let lat = data.features[1].geometry.coordinates[1]
-      console.log(lon);
-      console.log(lat);
+      console.log("This is starting longitude: " + lon);
+      console.log("This is starting latitude: " + lat);
 
 
       // find a restaurant near startingPoint 
