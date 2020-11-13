@@ -99,9 +99,14 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
         });
           
 
-        showMap()
 
-        
+        // $('#modalID').on('shown.bs.modal', function() {
+        //   map.resize();
+        // });
+
+
+        showMap();
+
         // this is the map info
       
 
@@ -115,7 +120,9 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           center: [-122.486052, 37.830348],
           zoom: 15,
         });
+
   
+        
         map.on("load", function () {
           map.addSource("route", {
             type: "geojson",
@@ -154,6 +161,8 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
      
     });
 });
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////// map for later
 // experimenting with the map created using mapbox.js
