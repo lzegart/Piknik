@@ -62,7 +62,8 @@ document.querySelector("#planPiknik").addEventListener("click", function(e){
         return response.json();
       })
       .then(function(data){
-        console.log(data)
+        let randomFoodArray = data.results
+        console.log(randomFoodArray);
       });
 
       // find a point of interest near startingPoint
