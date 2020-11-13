@@ -23,7 +23,12 @@ button.button {
     background-color: rgba(8, 36, 2, 0.966);
     display: inline-block;
     font-family: serif;
+    font-size: 19px;
     padding: 20px;
+}
+
+h3 {
+    font-family: serif;
 }
 
 
