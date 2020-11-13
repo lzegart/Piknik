@@ -8,10 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
     />
     <link rel="stylesheet" href="./assets/style.css" />
-    <link
-      href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css"
-      rel="stylesheet"
-    />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <title>Piknik</title>
   </head>
   <body>
@@ -20,7 +17,6 @@
     <!-- John -->
 
     <!-- Alfredo -->
-    
 
     <section class="main">
       <p id="button-container">
@@ -89,38 +85,39 @@
       <h3>Here are the choices for your Piknik:</h3>
       <div class="grid-container">
         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-          <div class="cell">
-
-            <div class="cell small-4">
-              <div class="card">
-                <div class="card-section">
-                  <h4>Start Point</h4>
-                  <h6>Get ready for the open air...</h6>
-                  <p>and don't forget to pack your esssentials</p>
-                </div>
+          <!-- This is the Start Point Card -->
+          <div class="cell small-4">
+            <div class="card">
+              <div class="card-section">
+                <h4>Start Point</h4>
+                <h6>Get ready for the open air...</h6>
+                <p>and don't forget to pack your esssentials!</p>
               </div>
             </div>
-
-            <div class="cell small-4">
-              <div class="card">
-                <div class="card-section">
-                  <h4>Food Stop</h4>
-                  <h6>Name and Address:</h6>
-                  <p><span class="foodAddress"></span></p>
-                </div>
+          </div>
+          <!-- This is the Food Stop Card -->
+          <div class="cell small-4">
+            <div class="card">
+              <div class="card-section">
+                <h4>Food Stop</h4>
+                <h6>Name:</h6>
+                <p><span class="foodName"></span></p>
+                <h6>Address:</h6>
+                <p><span class="foodAddress"></span></p>
               </div>
             </div>
-
-            <div class="cell small-4">
-              <div class="card">
-                <div class="card-section">
-                  <h4>Destination</h4>
-                  <h6>Name and Address:</h6>
-                  <p><span class="destinationAddress"></span></p>
-                </div>
+          </div>
+          <!-- This is the Destination Card -->
+          <div class="cell small-4">
+            <div class="card">
+              <div class="card-section">
+                <h4>Destination</h4>
+                <h6>Name:</h6>
+                <p><span class="destinationName"></span></p>
+                <h6>Address:</h6>
+                <p><span class="destinationAddress"></span></p>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -139,11 +136,9 @@
       <div class="reveal" id="resultsModal" data-reveal>
         <h3>My Piknik Map</h3>
         <div class="card">
-          <div class="card-section">
-            <p>
-              This is where the map will be (?)
-            </p>
-          </div>
+
+          <!-- this is the map -->
+          <div id="map"></div>
         </div>
         <button class="button" data-open="openingModal">REPACK MY PIKNIK!</button>
         <button class="button">SAVE MY PIKNIK!</button> 
@@ -170,7 +165,7 @@
     </div>
 
 
-    <!-- <div id="mapBox"></div> -->
+   
 
     <!-- Shelsy -->
 
@@ -189,7 +184,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
 
     <script src="./assets/script.js"></script>
   </body>

@@ -57,10 +57,7 @@ h3 {
 
 
 /* styling specifically for the map */
-body { 
-    margin:0; 
-    padding:0; 
-}
+
 
 .background {
     max-height:100%;
@@ -71,7 +68,11 @@ body {
     position: absolute; 
     top:0; 
     bottom:0; 
-    width:100%; 
+    width:100%;
+}
+
+.mapboxgl-canvas {
+    align-content: center;
 }
 
 /* Sticky Footer styling */
@@ -81,4 +82,8 @@ body {
     color: gray;
     text-align: center;
     padding-top: 10px;
+}
+
+.card {
+    display: block;
 }
