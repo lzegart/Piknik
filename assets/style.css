@@ -40,6 +40,11 @@ h3 {
     /* font-family: serif; */
 }
 
+#mapContainer {
+    height: 75%;
+    width: 10%;
+}
+
 
 
 /* John */
@@ -73,12 +78,19 @@ h3 {
     max-width:100%;
 }
 
-#map { 
-    position: absolute; 
-    top:0; 
-    bottom:0; 
-    width:100%;
+#mapContainer {
+    position: relative;
+    height: 75%;
+    width: 100%;
 }
+
+#map { 
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 
 .mapboxgl-canvas {
     align-content: center;
@@ -95,4 +107,8 @@ h3 {
 
 .card {
     display: block;
+}
+
+#resultsModal {
+    height: 80%;
 }
