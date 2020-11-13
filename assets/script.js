@@ -67,10 +67,11 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
             randomFoodArray.push(foodOptions);
           }
 
-          console.log("These are random food stops")
-          console.log(randomFoodArray);
+          // console.log("These are random food stops")
+          // console.log(randomFoodArray);
           let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
           console.log(randomFood)
+          $(".foodAddress").append(randomFood);
 
         });
 
@@ -91,8 +92,11 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
             
           }
 
-          console.log("These are random destination stops")
-          console.log(randomDestinationArray);
+          // console.log("These are random destination stops")
+          // console.log(randomDestinationArray);
+          let randomDestination = randomDestinationArray[Math.floor(Math.random() * randomDestinationArray.length)];
+          console.log(randomDestination);
+          $(".destinationAddress").append(randomDestination);
 
         });
     });
