@@ -80,20 +80,73 @@
 
 
 
-      <!-- This is the nested Results modal -->
-      <div class="reveal" id="formModal" data-reveal>
-        <h1>Results</h1>
-        <div class="grid-container">
-          <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-            <div class="cell small-4">
-              <div class="card">
-                <div class="card-section">
-                  <h4>Starting Point</h4>
-                  <h6>Address:</h6>
-                  <p><span class="startAddress">123 Main Ave.</span></p>
-                  <p>Don't forget to pack your essentials!</p>
-                  <!-- <textarea></textarea> -->
-                </div>
+    <p id="button-container">
+      <button class="button" data-open="openingModal" id="start-piknik">PIKNIK PLANNER</button>
+    </p>
+
+    <!-- This is the first Form modal -->
+    <div class="reveal" id="openingModal" data-reveal>
+      <h1>Form</h1>
+      <form>
+        <label
+          >Starting Location
+          <input
+            id="inputText" type="text"
+            placeholder="City/ Address"
+            aria-describedby="exampleHelpText"
+          />
+        </label>
+
+        <label
+          >Distance Range
+          <select id="miles">
+            <option value="select">Select Option</option>
+            <option value="8046">5 mile</option>
+            <option value="16093">10 mile</option>
+          </select>
+        </label>
+        <label
+          >Food Preference
+          <select id="foods">
+            <option value="select">Select Option</option>
+            <option value="7315">Restaurant</option>
+            <option value="9376">Cafe</option>
+            <option value="9379004">Bar</option>
+          </select>
+        </label>
+        <label
+          >Destination Type
+          <select id="places">
+            <option value="select">Select Option</option>
+            <option value="9362">Park and Recreation Area</option>
+            <option value="7376">Tourist Attraction</option>
+            <option value="7302">Trails</option>
+          </select>
+        </label>
+      </form>
+      <button id="planPiknik" class="button" data-open="formModal">PLAN MY PIKNIK!</button>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close reveal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+
+
+    <!-- This is the nested Results modal -->
+    <div class="reveal" id="formModal" data-reveal>
+      <h1>Results</h1>
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+          <div class="cell">
+            <div class="card">
+              <div class="card-section">
+                <h4>This is a row of cards.</h4>
+                <textarea></textarea>
               </div>
             </div>
             <div class="cell small-4">
