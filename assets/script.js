@@ -62,11 +62,12 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           let randomFoodArray = [];
 
           for (let i = 0; i < data.results.length; i++) {
-            console.log(data.results[i].address.freeformAddress);
+
             let randomFood = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
             randomFoodArray.push(randomFood);
           }
 
+          console.log("These are random food stops")
           console.log(randomFoodArray);
 
         });
@@ -82,11 +83,13 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           let randomDestinationArray = [];
           
           for (let i = 0; i < data.results.length; i++) {
-            let randomDestination = data.results[i].poi.name;
+
+            let randomDestination = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
             randomDestinationArray.push(randomDestination);
             
           }
 
+          console.log("These are random destination stops")
           console.log(randomDestinationArray);
 
         });
