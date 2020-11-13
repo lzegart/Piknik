@@ -63,12 +63,14 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
 
           for (let i = 0; i < data.results.length; i++) {
 
-            let randomFood = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
-            randomFoodArray.push(randomFood);
+            let foodOptions = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
+            randomFoodArray.push(foodOptions);
           }
 
           console.log("These are random food stops")
           console.log(randomFoodArray);
+          let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
+          console.log(randomFood)
 
         });
 
@@ -84,8 +86,8 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           
           for (let i = 0; i < data.results.length; i++) {
 
-            let randomDestination = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
-            randomDestinationArray.push(randomDestination);
+            let destinationOptions = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
+            randomDestinationArray.push(destinationOptions);
             
           }
 
