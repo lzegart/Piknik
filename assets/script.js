@@ -96,6 +96,8 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
             ];
           console.log(randomDestination);
           $(".destinationAddress").append(randomDestination);
+        });
+          
 
         // this is the map info
       mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
