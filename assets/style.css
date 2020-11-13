@@ -1,7 +1,6 @@
 body { 
     margin:0; 
     padding:0; 
-    background-image: url("./images/Piknik_Background.png");
     background-size: cover;
 }
 
@@ -46,9 +45,28 @@ body {
 
 
 /* styling specifically for the map */
+body { 
+    margin:0; 
+    padding:0; 
+}
+
+.background {
+    max-height:100%;
+    max-width:100%;
+}
+
 #map { 
     position: absolute; 
     top:0; 
     bottom:0; 
     width:100%; 
+}
+
+/* Sticky Footer styling */
+.sticky {
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%;
+    color: gray;
+    text-align: center;
+    padding-top: 10px;
 }
