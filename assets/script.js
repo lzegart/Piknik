@@ -67,9 +67,10 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
 
           // console.log("These are random food stops")
           // console.log(randomFoodArray);
-          let randomFood =
-            randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)];
-          console.log(randomFood);
+          let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
+          console.log(randomFood)
+          $(".foodAddress").append(randomFood);
+
         });
 
       // find a point of interest near startingPoint
@@ -94,7 +95,7 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
               Math.floor(Math.random() * randomDestinationArray.length)
             ];
           console.log(randomDestination);
-        });
+          $(".destinationAddress").append(randomDestination);
 
         // this is the map info
       mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
