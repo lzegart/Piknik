@@ -29,7 +29,7 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
   let startingPoint = input.value;
   console.log("This is the starting point input: " + startingPoint);
   let miles = mileInput.value;
-  console.log("This is the miles converted into meters: " + miles);
+  console.log("This is the miles converted into meers: " + miles);
   let food = foodInput.value;
   console.log("This is the users food stop preference category set: " + food);
   let place = placeInput.value;
@@ -78,8 +78,16 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           return response.json();
         })
         .then(function (data) {
-          let randomDestinationArray = data.results;
+          let randomDestinationArray = [];
+          
+          for (let i = 0; i < data.results.length; i++) {
+            let randomDestination = data.results[i].poi.name;
+            randomDestinationArray.push(randomDestination);
+            
+          }
+
           console.log(randomDestinationArray);
+          
         });
     });
 });
