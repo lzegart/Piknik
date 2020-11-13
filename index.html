@@ -8,10 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
     />
     <link rel="stylesheet" href="./assets/style.css" />
-    <link
-      href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css"
-      rel="stylesheet"
-    />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <title>Piknik</title>
   </head>
   <body>
@@ -132,11 +129,9 @@
       <div class="reveal" id="resultsModal" data-reveal>
         <h3>My Piknik Map</h3>
         <div class="card">
-          <div class="card-section">
-            <p>
-              This is where the map will be (?)
-            </p>
-          </div>
+
+          <!-- this is the map -->
+          <div id="map"></div>
         </div>
         <button class="button" data-open="openingModal">REPACK MY PIKNIK!</button>
         <button class="button">SAVE MY PIKNIK!</button> 
@@ -163,7 +158,7 @@
     </div>
 
 
-    <!-- <div id="mapBox"></div> -->
+   
 
     <!-- Shelsy -->
 
@@ -182,7 +177,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
 
     <script src="./assets/script.js"></script>
   </body>
