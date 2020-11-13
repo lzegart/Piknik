@@ -16,7 +16,14 @@ body {
     display: inline-block;
     width: 25%;
     font-size: 30px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: serif;
+}
+
+button.button {
+    background-color: rgba(8, 36, 2, 0.966);
+    display: inline-block;
+    font-family: serif;
+    padding: 20px;
 }
 
 
