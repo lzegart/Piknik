@@ -11,7 +11,7 @@ $(document).foundation();
 
 // key from mapbox api
 let myToken =
-  "sk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMzBuemsxOHczMnNrODF6M2lveHc1In0.WXY65kiQoG9rDXMxzd5qEg";
+"sk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMzBuemsxOHczMnNrODF6M2lveHc1In0.WXY65kiQoG9rDXMxzd5qEg";
 let tomKey = "yrlw2N38GKc3iSGnqvnQNxPQUsVQuVAh";
 // target user address
 let input = document.querySelector("input");
@@ -22,21 +22,9 @@ let foodInput = document.querySelector("#foods");
 // target user place preference
 let placeInput = document.querySelector("#places");
 
-// when user clicks "plan my piknik"
-document.querySelector("#planPiknik").addEventListener("click", function (e) {
-  e.preventDefault();
-  // get values of all options they chose
-  let startingPoint = input.value;
-  console.log("This is the starting point input: " + startingPoint);
-  let miles = mileInput.value;
-  console.log("This is the miles converted into meters: " + miles);
-  let food = foodInput.value;
-  console.log("This is the users food stop preference category set: " + food);
-  let place = placeInput.value;
-  console.log(
-    "This is the users destination preference category set: " + place
-  );
 
+// finds lat and lon of starting point
+function findLatLon(startingPoint) {
   fetch(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${startingPoint}.json?access_token=${myToken}`
   )
@@ -47,35 +35,47 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
       // set variables for lat and lon of startingPoint
       let lon = data.features[1].geometry.coordinates[0];
       let lat = data.features[1].geometry.coordinates[1];
-      console.log("This is starting longitude: " + lon);
-      console.log("This is starting latitude: " + lat);
+      console.log(lon);
+      console.log(lat);
+});
+
+
+};
+
+
+
 
       // find a restaurant near startingPoint
-      fetch(
-        `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${food}&key=${tomKey}`
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          let randomFoodArray = [];
+function findFood(params) {
+  fetch(
+    `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${food}&key=${tomKey}`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let randomFoodArray = [];
 
-          for (let i = 0; i < data.results.length; i++) {
-            let foodOptions = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
-            randomFoodArray.push(foodOptions);
-          }
+      for (let i = 0; i < data.results.length; i++) {
+        let foodOptions = `${data.results[i].poi.name} at ${data.results[i].address.freeformAddress}`;
+        randomFoodArray.push(foodOptions);
+      }
 
-          // console.log("These are random food stops")
-          // console.log(randomFoodArray);
-          let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
-          console.log(randomFood)
+      // console.log("These are random food stops")
+      // console.log(randomFoodArray);
+      let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
+      console.log(randomFood)
 
-          $(".foodName").append(randomFood.split(" at ")[0]);
-          $(".foodAddress").append(randomFood.split(" at ")[1]);
+      $(".foodName").append(randomFood.split(" at ")[0]);
+      $(".foodAddress").append(randomFood.split(" at ")[1]);
 
-        });
+    });
+}
 
-      // find a point of interest near startingPoint
+
+     // find a point of interest near startingPoint
+function findDestination () {
+ 
       fetch(
         `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${place}&key=${tomKey}`
       )
@@ -101,72 +101,85 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           $(".destinationName").append(randomDestination.split(" at ")[0]);
           $(".destinationAddress").append(randomDestination.split(" at ")[1]);
         });
-          
 
 
-        // $('#modalID').on('shown.bs.modal', function() {
-        //   map.resize();
-        // });
+      };
 
 
-         
 
-        showMap();
 
-        // this is the map info
-      
+// when user clicks "plan my piknik"
+document.querySelector("#planPiknik").addEventListener("click", function (e) {
+  e.preventDefault();
 
-      function showMap() {
+  // get values of all options they chose
+  let startingPoint = input.value;
+  console.log("This is the starting point input: " + startingPoint);
+  let miles = mileInput.value;
+  console.log("This is the miles converted into meters: " + miles);
+  let food = foodInput.value;
+  console.log("This is the users food stop preference category set: " + food);
+  let place = placeInput.value;
+  console.log("This is the users destination preference category set: " + place);
 
-        mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
-        let map = new mapboxgl.Map({
-          container: "map",
-          style: "mapbox://styles/mapbox/streets-v11",
-          // coords of startingPoint
-          center: [-122.486052, 37.830348],
-          zoom: 15,
-        });
+findLatLon(startingPoint);
+
+    
+});
+
+
+//         showMap();
+
+
+// // this is the map info
+// function showMap() {
+
+//   mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
+//   let map = new mapboxgl.Map({
+//     container: "map",
+//     style: "mapbox://styles/mapbox/streets-v11",
+//     // coords of startingPoint
+//     center: [-122.486052, 37.830348],
+//     zoom: 15,
+//   });
+
 
   
-        
-        map.on("load", function () {
-          map.addSource("route", {
-            type: "geojson",
-            data: {
-              type: "Feature",
-              properties: {},
-              geometry: {
-                type: "LineString",
-                coordinates: [
-                  // coords for startingPoint
-                  [-122.48369693756104, 37.83381888486939],
-                  // coords for randomFood
-                  [-122.48348236083984, 37.83317489144141],
-                  // coords for randomDestination
-                  [-122.48339653015138, 37.83270036637107],
-                  
-                ],
-              },
-            },
-          });
-          map.addLayer({
-            id: "route",
-            type: "line",
-            source: "route",
-            layout: {
-              "line-join": "round",
-              "line-cap": "round",
-            },
-            paint: {
-              "line-color": "#888",
-              "line-width": 8,
-            },
-          });
-        });
-      }
-     
-    });
-});
+  // map.on("load", function () {
+  //   map.addSource("route", {
+  //     type: "geojson",
+  //     data: {
+  //       type: "Feature",
+  //       properties: {},
+  //       geometry: {
+  //         type: "LineString",
+  //         coordinates: [
+  //           // coords for startingPoint
+  //           [-122.48369693756104, 37.83381888486939],
+  //           // coords for randomFood
+  //           [-122.48348236083984, 37.83317489144141],
+  //           // coords for randomDestination
+  //           [-122.48339653015138, 37.83270036637107],
+            
+  //         ],
+  //       },
+  //     },
+  //   });
+//     map.addLayer({
+//       id: "route",
+//       type: "line",
+//       source: "route",
+//       layout: {
+//         "line-join": "round",
+//         "line-cap": "round",
+//       },
+//       paint: {
+//         "line-color": "#888",
+//         "line-width": 8,
+//       },
+//     });
+//   });
+// }
 
 
 
