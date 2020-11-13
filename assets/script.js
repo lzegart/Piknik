@@ -37,6 +37,9 @@ function findLatLon(startingPoint) {
       let lat = data.features[1].geometry.coordinates[1];
       console.log(lon);
       console.log(lat);
+
+      return lat, lon;
+
 });
 
 
@@ -46,7 +49,14 @@ function findLatLon(startingPoint) {
 
 
       // find a restaurant near startingPoint
-function findFood(params) {
+function findFood(miles, food) {
+
+  lat = findLatLon.lan;
+  lon = findLatLon.lon;
+  console.log(lat);
+  console.log(lon);
+
+
   fetch(
     `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${food}&key=${tomKey}`
   )
@@ -73,8 +83,12 @@ function findFood(params) {
 }
 
 
+
+
      // find a point of interest near startingPoint
-function findDestination () {
+function findDestination (miles, place) {
+
+  // need access to lat and lon from starting point in findLatLon(startingPoint)
  
       fetch(
         `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${place}&key=${tomKey}`
@@ -123,6 +137,8 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
   console.log("This is the users destination preference category set: " + place);
 
 findLatLon(startingPoint);
+findFood(miles, food);
+findDestination(miles, place);
 
     
 });
