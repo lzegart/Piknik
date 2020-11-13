@@ -83,3 +83,7 @@ h3 {
     text-align: center;
     padding-top: 10px;
 }
+
+.card {
+    display: block;
+}
