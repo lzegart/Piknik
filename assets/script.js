@@ -99,51 +99,59 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
         });
           
 
+        showMap()
+
+        
         // this is the map info
-      mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
+      
 
-      let map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/streets-v11",
-        // coords of startingPoint
-        center: [-122.486052, 37.830348],
-        zoom: 15,
-      });
+      function showMap() {
 
-      map.on("load", function () {
-        map.addSource("route", {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            properties: {},
-            geometry: {
-              type: "LineString",
-              coordinates: [
-                // coords for startingPoint
-                [-122.48369693756104, 37.83381888486939],
-                // coords for randomFood
-                [-122.48348236083984, 37.83317489144141],
-                // coords for randomDestination
-                [-122.48339653015138, 37.83270036637107],
-                
-              ],
+        mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
+        let map = new mapboxgl.Map({
+          container: "map",
+          style: "mapbox://styles/mapbox/streets-v11",
+          // coords of startingPoint
+          center: [-122.486052, 37.830348],
+          zoom: 15,
+        });
+  
+        map.on("load", function () {
+          map.addSource("route", {
+            type: "geojson",
+            data: {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "LineString",
+                coordinates: [
+                  // coords for startingPoint
+                  [-122.48369693756104, 37.83381888486939],
+                  // coords for randomFood
+                  [-122.48348236083984, 37.83317489144141],
+                  // coords for randomDestination
+                  [-122.48339653015138, 37.83270036637107],
+                  
+                ],
+              },
             },
-          },
+          });
+          map.addLayer({
+            id: "route",
+            type: "line",
+            source: "route",
+            layout: {
+              "line-join": "round",
+              "line-cap": "round",
+            },
+            paint: {
+              "line-color": "#888",
+              "line-width": 8,
+            },
+          });
         });
-        map.addLayer({
-          id: "route",
-          type: "line",
-          source: "route",
-          layout: {
-            "line-join": "round",
-            "line-cap": "round",
-          },
-          paint: {
-            "line-color": "#888",
-            "line-width": 8,
-          },
-        });
-      });
+      }
+     
     });
 });
 
