@@ -71,7 +71,10 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
           // console.log(randomFoodArray);
           let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
           console.log(randomFood)
-          $(".foodAddress").append(randomFood);
+          // $(".foodAddress").append(randomFood);
+
+          $(".foodName").append(randomFood.split(" at ")[0]);
+          $(".foodAddress").append(randomFood.split(" at ")[1]);
 
         });
 
