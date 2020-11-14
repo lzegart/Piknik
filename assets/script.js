@@ -172,7 +172,7 @@ $(document).ready(function () {
       style: "mapbox://styles/mapbox/streets-v11",
       // coordinates for starting point
       center: startCoordinates,
-      zoom: 10,
+      zoom: 12,
     });
 
     map.on("load", function () {
