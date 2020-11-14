@@ -18,18 +18,20 @@
 
     <!-- Alfredo -->
 
+    <!-- This is start of test -->
+
+    <!-- This is end of test -->
+
     <section class="main">
       <p id="button-container">
-        <br>
-        <br>
-        <button class="button" data-open="openingModal" id="start-piknik">PIKNIK PLANNER</button>
+        <button class="button" data-open="openingModal" id="start-piknik">piknik planner</button>
       </p>
       <!-- <p id="button-container">
         <button class="button" data-open="savedModal" id="saved-piknik">SAVED PIKNIKS</button>
       </p> -->
     
       <!-- This is the first Form modal -->
-      <div class="reveal" id="openingModal" data-reveal>
+      <div class="reveal small" id="openingModal" data-reveal>
         <h3>Please enter your preferences:</h3>
         <form>
           <label
@@ -81,17 +83,20 @@
       </div>
 
     <!-- This is the nested Results modal -->
-    <div class="reveal" id="formModal" data-reveal>
-      <h3>Here are the choices for your Piknik:</h3>
+    <div class="reveal medium" id="formModal" data-reveal>
+      <h3>Your Piknik Itinerary:</h3>
       <div class="grid-container">
         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
           <!-- This is the Start Point Card -->
           <div class="cell small-4">
             <div class="card">
               <div class="card-section">
+                <img src="./assets/images/Results_Modal_Start.png">
+              </div>
+              <div class="card-section">
                 <h4>Start Point</h4>
                 <h6>Get ready for the open air...</h6>
-                <p>and don't forget to pack your esssentials!</p>
+                <p>and don't forget to pack your essentials!</p>
               </div>
             </div>
           </div>
@@ -99,10 +104,13 @@
           <div class="cell small-4">
             <div class="card">
               <div class="card-section">
+                <img src="./assets/images/Results_Modal_Food.png">
+              </div>
+              <div class="card-section">
                 <h4>Food Stop</h4>
-                <h6>Name:</h6>
+                <!-- <h6>Name:</h6> -->
                 <p><span class="foodName"></span></p>
-                <h6>Address:</h6>
+                <h4>Address</h4>
                 <p><span class="foodAddress"></span></p>
               </div>
             </div>
@@ -111,10 +119,13 @@
           <div class="cell small-4">
             <div class="card">
               <div class="card-section">
+                <img src="./assets/images/Results_Modal_Destination.png">
+              </div>
+              <div class="card-section">
                 <h4>Destination</h4>
-                <h6>Name:</h6>
+                <!-- <h6>Name:</h6> -->
                 <p><span class="destinationName"></span></p>
-                <h6>Address:</h6>
+                <h4>Address</h4>
                 <p><span class="destinationAddress"></span></p>
               </div>
             </div>
@@ -133,13 +144,13 @@
       </div>
 
       <!-- This is the nested Map modal -->
-      <div class="reveal" id="resultsModal" data-reveal>
+      <div class="reveal medium" id="resultsModal" data-reveal>
         <h3>My Piknik Map</h3>
-        <div class="card">
-
-          <!-- this is the map -->
+        <!-- this is the map -->
+        <div class="card" id="mapContainer">
           <div id="map"></div>
         </div>
+
         <button class="button" data-open="openingModal">REPACK MY PIKNIK!</button>
         <button class="button">SAVE MY PIKNIK!</button> 
         <button
@@ -152,10 +163,6 @@
         </button>
       </div>
     </section>
-
-    <div class="background">
-      <img src="./assets/images/Piknik_Background.png" alt="picnic illustration">
-    </div>
 
     <!-- This is a Sticky Footer -->
     <div class="cell small-6 right" data-sticky-container>
