@@ -19,6 +19,14 @@ $(document).ready(function () {
   // empty array receives pushed values of lon, lat from startingPoint, randomFood address and randomDestination address
   let mapCoordinates = [];
 
+  savedSearches = [];
+
+function saveSearches() {
+  
+  console.log(saveSearches)
+
+};
+
   // finds lat and lon of starting point. Called inside of click event to have access to user miles, food, and place preference
   function findLatLon(startingPoint, miles, food, place) {
     fetch(
@@ -40,6 +48,8 @@ $(document).ready(function () {
         findDestination(miles, place, lat, lon);
 
         showMap(lat, lon);
+
+        localStorage.setItem('starting', JSON.stringify(startingPoint));
       });
   }
 
@@ -55,6 +65,7 @@ $(document).ready(function () {
         // set variables for lat and lon of argument (location)
         let lon = data.features[1].geometry.coordinates[0];
         let lat = data.features[1].geometry.coordinates[1];
+
 
         let arr = [lon, lat];
         // push array of coordinates (argument/location) to empty global array
@@ -92,6 +103,7 @@ $(document).ready(function () {
 
         // find the random results lat an lon using this function
         findMapLatLon(randomFood.split(" at ")[1]);
+        localStorage.setItem('food', JSON.stringify(randomFood));
       });
   }
 
@@ -127,6 +139,7 @@ $(document).ready(function () {
 
         // find the random results lat an lon using this function
         findMapLatLon(randomDestination.split(" at ")[1]);
+        localStorage.setItem('destination', JSON.stringify(randomDestination));
       });
   }
 
@@ -146,6 +159,7 @@ $(document).ready(function () {
     // run function to get lat and lon from findLatLon, findFood, and findDestination
     // run function to get random food and random destination
     findLatLon(startingPoint, miles, food, place);
+    saveSearches();
 
     // append user starting point address
     $(".startAddress").append(startingPoint);
@@ -157,6 +171,7 @@ $(document).ready(function () {
     .addEventListener("click", function () {
       console.log("These are my saved pikniks");
     });
+
 
   // plan to set local storage here
   document.querySelector("#savePiknik").addEventListener("click", function (e) {
