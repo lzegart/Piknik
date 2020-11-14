@@ -1,10 +1,6 @@
-// Lara
+$(document).ready(function(){
 
-// John
-
-// Alfredo
-
-// gives modals functionality
+  // gives modals functionality
 $(document).foundation();
 
 // Shelsy
@@ -39,6 +35,8 @@ function findLatLon(startingPoint, miles, food, place) {
 
       // let arr = [lon, lat];
 
+      let arr = [lon, lat]
+      mapCoordinates.push(arr);
       findFood(miles, food, lat, lon);
       findDestination(miles, place, lat, lon);
     });
@@ -132,6 +130,7 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
   let place = placeInput.value;
 
   findLatLon(startingPoint, miles, food, place);
+
 });
 
 function showMap(lat, lon) {
@@ -139,6 +138,9 @@ function showMap(lat, lon) {
     lon: lon,
     lat: lat,
   };
+
+
+ 
 
   mapboxgl.accessToken =
     "pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg";
@@ -178,64 +180,5 @@ function showMap(lat, lon) {
   });
 }
 
-//         showMap();
 
-// function showMap()
-// {
-//   mapboxgl.accessToken = `pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg`;
-
-//   let map = new mapboxgl.Map({
-//     container: "map",
-//     style: "mapbox://styles/mapbox/streets-v11",
-//     center: mapCoordinates[0],
-//     zoom: 15,
-//   });
-
-//   map.on("load", function () {
-//     console.log(mapCoordinates);
-//     map.addSource("route", {
-//       type: "geojson",
-//       data: {
-//         type: "Feature",
-//         properties: {},
-//         geometry: {
-//           type: "LineString",
-//           coordinates: mapCoordinates,
-//         },
-//       },
-//     });
-//     map.addLayer({
-//       id: "route",
-//       type: "line",
-//       source: "route",
-//       layout: {
-//         "line-join": "round",
-//         "line-cap": "round",
-//       },
-//       paint: {
-//         "line-color": "#888",
-//         "line-width": 8,
-//       },
-//     });
-//   });
-// }
-
-////////////////////////////////////////////////////////////////////////////////////////////// map for later
-// experimenting with the map created using mapbox.js
-
-// let geocoder = L.mapbox.geocoder('mapbox.places');
-
-// let map = L.mapbox.map('mapBox').addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
-
-// geocoder.query(`${currentLocation}`, showMap);
-
-// function showMap(err, data) {
-//     // The geocoder can return an area, like a city, or a
-//     // point, like an address. Here we handle both cases,
-//     // by fitting the map bounds to an area or zooming to a point.
-//     if (data.lbounds) {
-//         map.fitBounds(data.lbounds);
-//     } else if (data.latlng) {
-//         map.setView([data.latlng[0], data.latlng[1]], 13);
-//     }
-// }
+})
