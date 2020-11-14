@@ -1,5 +1,21 @@
 // Lara
 
+savedSearches = [];
+
+function saveSearches() {
+  
+  saveSearches()
+  console.log(saveSearches)
+
+};
+
+// function displaySearches() {
+//   localStorage.setItem('starting', JSON.stringify(startingPoint));
+//   localStorage.setItem('food', JSON.stringify(randomFood));
+//   localStorage.setItem('destination', JSON.stringify(randomDestination));
+
+// }
+
 // John
 
 // Alfredo
@@ -67,8 +83,9 @@ function findMapLatLon(startingPoint) {
       let arr = [lon, lat];
 
       mapCoordinates.push(arr);
+
+      localStorage.setItem('starting', JSON.stringify(startingPoint));
     
-      
     });
 
 
@@ -104,6 +121,8 @@ function findFood(miles, food, lat, lon) {
 
       findMapLatLon(randomFood.split(" at ")[1]);
 
+      localStorage.setItem('food', JSON.stringify(randomFood));
+
     });
 }
 
@@ -138,6 +157,9 @@ function findDestination(miles, place, lat, lon) {
       $(".destinationAddress").append(randomDestination.split(" at ")[1]);
 
       findMapLatLon(randomDestination.split(" at ")[1]);
+
+      localStorage.setItem('destination', JSON.stringify(randomDestination));
+
     });
 
 
@@ -206,6 +228,7 @@ map.addLayer({
 });
 });
 }
+
 
 
 //         showMap();
