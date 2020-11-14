@@ -27,8 +27,8 @@ let mapCoordinates = [];
 // finds lat and lon of starting point
 function findLatLon(startingPoint, miles, food, place) {
   fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${startingPoint}.json?access_token=${myToken}`
-    )
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${startingPoint}.json?access_token=${myToken}`
+  )
     .then(function (response) {
       return response.json();
     })
@@ -37,25 +37,17 @@ function findLatLon(startingPoint, miles, food, place) {
       let lon = data.features[1].geometry.coordinates[0];
       let lat = data.features[1].geometry.coordinates[1];
 
+      // let arr = [lon, lat];
 
-      let arr = [lon, lat];
-      mapCoordinates.push(arr);
       findFood(miles, food, lat, lon);
       findDestination(miles, place, lat, lon);
-    
-      
     });
-
-
-};
-
+}
 
 function findMapLatLon(startingPoint) {
-
-
   fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${startingPoint}.json?access_token=${myToken}`
-    )
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${startingPoint}.json?access_token=${myToken}`
+  )
     .then(function (response) {
       return response.json();
     })
@@ -67,25 +59,16 @@ function findMapLatLon(startingPoint) {
       let arr = [lon, lat];
 
       mapCoordinates.push(arr);
-    
-      
+
+      showMap(lat, lon);
     });
-
-
-};
-
-
-
+}
 
 // find a restaurant near startingPoint
 function findFood(miles, food, lat, lon) {
-
-
-
-
   fetch(
-      `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${food}&key=${tomKey}`
-    )
+    `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${food}&key=${tomKey}`
+  )
     .then(function (response) {
       return response.json();
     })
@@ -97,26 +80,21 @@ function findFood(miles, food, lat, lon) {
         randomFoodArray.push(foodOptions);
       }
 
-      let randomFood = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
+      let randomFood =
+        randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)];
 
       $(".foodName").append(randomFood.split(" at ")[0]);
       $(".foodAddress").append(randomFood.split(" at ")[1]);
 
       findMapLatLon(randomFood.split(" at ")[1]);
-
     });
 }
 
-
-
-
 // find a point of interest near startingPoint
 function findDestination(miles, place, lat, lon) {
-
-
   fetch(
-      `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${place}&key=${tomKey}`
-    )
+    `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&radius=${miles}&limit=10&idxSet=POI&categorySet=${place}&key=${tomKey}`
+  )
     .then(function (response) {
       return response.json();
     })
@@ -133,18 +111,12 @@ function findDestination(miles, place, lat, lon) {
           Math.floor(Math.random() * randomDestinationArray.length)
         ];
 
-
       $(".destinationName").append(randomDestination.split(" at ")[0]);
       $(".destinationAddress").append(randomDestination.split(" at ")[1]);
 
       findMapLatLon(randomDestination.split(" at ")[1]);
     });
-
-
-};
-
-
-
+}
 
 // when user clicks "plan my piknik"
 document.querySelector("#planPiknik").addEventListener("click", function (e) {
@@ -159,54 +131,52 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
 
   let place = placeInput.value;
 
-
   findLatLon(startingPoint, miles, food, place);
-
-
-console.log(mapCoordinates);
-
-showMap();
-
 });
 
-function showMap () {
-  mapboxgl.accessToken = 'pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-// coordinates for starting point
-center: mapCoordinates[0],
-zoom: 12
-});
- 
-map.on('load', function () {
-map.addSource('route', {
-'type': 'geojson',
-'data': {
-'type': 'Feature',
-'properties': {},
-'geometry': {
-'type': 'LineString',
-'coordinates': mapCoordinates
+function showMap(lat, lon) {
+  let startCoordinates = {
+    lon: lon,
+    lat: lat,
+  };
+
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoic2hlbGxzZWEzMSIsImEiOiJja2hiMnVsdzUwbThsMndrNDUyNnI0dDJuIn0.Fwya7JTKf9MQOsTVGMVwIg";
+  var map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/mapbox/streets-v11",
+    // coordinates for starting point
+    center: startCoordinates,
+    zoom: 10,
+  });
+
+  map.on("load", function () {
+    map.addSource("route", {
+      type: "geojson",
+      data: {
+        type: "Feature",
+        properties: {},
+        geometry: {
+          type: "LineString",
+          coordinates: mapCoordinates,
+        },
+      },
+    });
+    map.addLayer({
+      id: "route",
+      type: "line",
+      source: "route",
+      layout: {
+        "line-join": "round",
+        "line-cap": "round",
+      },
+      paint: {
+        "line-color": "#888",
+        "line-width": 8,
+      },
+    });
+  });
 }
-}
-});
-map.addLayer({
-'id': 'route',
-'type': 'line',
-'source': 'route',
-'layout': {
-'line-join': 'round',
-'line-cap': 'round'
-},
-'paint': {
-'line-color': '#888',
-'line-width': 8
-}
-});
-});
-}
-
 
 //         showMap();
 
@@ -220,7 +190,7 @@ map.addLayer({
 //     center: mapCoordinates[0],
 //     zoom: 15,
 //   });
-  
+
 //   map.on("load", function () {
 //     console.log(mapCoordinates);
 //     map.addSource("route", {
@@ -249,8 +219,6 @@ map.addLayer({
 //     });
 //   });
 // }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////// map for later
 // experimenting with the map created using mapbox.js
