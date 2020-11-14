@@ -147,15 +147,28 @@ $(document).ready(function () {
     // run function to get random food and random destination
     findLatLon(startingPoint, miles, food, place);
 
-    // append user starting point address 
+    // append user starting point address
     $(".startAddress").append(startingPoint);
   });
 
-  // plan to set local storage here
-  document.querySelector("#savePiknik").addEventListener("click", function(e){
-    console.log("save my piknik")
-  })
+  // plan to get local storage here
+  document
+    .querySelector("#previousPiknik")
+    .addEventListener("click", function () {
+      console.log("These are my saved pikniks");
+    });
 
+  // plan to set local storage here
+  document.querySelector("#savePiknik").addEventListener("click", function (e) {
+    console.log("save my piknik");
+  });
+
+  // when user clicks repack my piknik, page reloads
+  document
+    .querySelector("#repackPiknik")
+    .addEventListener("click", function (e) {
+      location.reload();
+    });
   // function runs when findLatLon runs inside the event listener
   // this function shows map with center of lon, lat of starting point
   // coordinates are corresponding to randomFood lon/lat and randomPDestination lon/lat
