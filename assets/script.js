@@ -100,6 +100,8 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
 
           $(".destinationName").append(randomDestination.split(" at ")[0]);
           $(".destinationAddress").append(randomDestination.split(" at ")[1]);
+
+          $(".startAddress").append(startingPoint);
         });
           
 

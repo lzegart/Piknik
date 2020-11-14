@@ -40,11 +40,6 @@ h3 {
     /* font-family: serif; */
 }
 
-#mapContainer {
-    height: 75%;
-    width: 10%;
-}
-
 
 
 /* John */
@@ -88,12 +83,15 @@ h3 {
     position: absolute;
     top: 0;
     bottom: 0;
+    height: 100%;
     width: 100%;
 }
 
 
 .mapboxgl-canvas {
     align-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 /* Sticky Footer styling */
