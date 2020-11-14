@@ -146,6 +146,9 @@ $(document).ready(function () {
     // run function to get lat and lon from findLatLon, findFood, and findDestination
     // run function to get random food and random destination
     findLatLon(startingPoint, miles, food, place);
+
+    // append user starting point address 
+    $(".startAddress").append(startingPoint);
   });
 
   // plan to set local storage here
