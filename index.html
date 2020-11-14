@@ -12,16 +12,8 @@
     <title>Piknik</title>
   </head>
   <body>
-    <!-- Lara -->
 
-    <!-- John -->
-
-    <!-- Alfredo -->
-
-    <!-- This is start of test -->
-
-    <!-- This is end of test -->
-
+    <!-- Landing Page button that triggers modal reveal -->
     <section class="main">
       <p id="button-container">
         <button class="button" data-open="openingModal" id="start-piknik">piknik planner</button>
@@ -34,6 +26,7 @@
       <div class="reveal small" id="openingModal" data-reveal>
         <h3>Please enter your preferences:</h3>
         <form>
+          <!-- User inputs starting location, City/Address -->
           <label
             >Starting Location
             <input
@@ -42,7 +35,7 @@
               aria-describedby="exampleHelpText"
             />
           </label>
-
+          <!-- User selects preferred distance range from dropdown-->
           <label
             >Distance Range
             <select id="miles">
@@ -51,6 +44,7 @@
               <option value="16093">10 mile</option>
             </select>
           </label>
+          <!-- User selects preferred food source category from dropdown-->
           <label
             >Food Preference
             <select id="foods">
@@ -60,6 +54,7 @@
               <option value="9379004">Bar</option>
             </select>
           </label>
+          <!-- User selects preferred destination category from dropdown-->
           <label
             >Destination Type
             <select id="places">
@@ -70,7 +65,9 @@
             </select>
           </label>
         </form>
+        <!-- Button triggers function to get all input values and then run fetch functions, and triggers reveal of Results modal -->
         <button id="planPiknik" class="button" data-open="formModal">PLAN MY PIKNIK!</button>
+        <!-- Button will display saved modals from previous selections-->
         <button class="button" data-open="savedModal" id="previousPiknik">SEE PREVIOUS PIKNIKS</button>
         <button
           class="close-button"
@@ -82,7 +79,7 @@
         </button>
       </div>
 
-    <!-- This is the nested Results modal -->
+    <!-- This is the first nested Results modal -->
     <div class="reveal medium" id="formModal" data-reveal>
       <h3>Your Piknik Itinerary:</h3>
       <div class="grid-container">
@@ -109,7 +106,6 @@
               </div>
               <div class="card-section">
                 <h4>Food Stop</h4>
-                <!-- <h6>Name:</h6> -->
                 <p><span class="foodName"></span></p>
                 <h4>Address</h4>
                 <p><span class="foodAddress"></span></p>
@@ -124,7 +120,6 @@
               </div>
               <div class="card-section">
                 <h4>Destination</h4>
-                <!-- <h6>Name:</h6> -->
                 <p><span class="destinationName"></span></p>
                 <h4>Address</h4>
                 <p><span class="destinationAddress"></span></p>
@@ -132,7 +127,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Button triggers reveal of Map modal -->
         <button class="button" data-open="resultsModal">MAP MY PIKNIK!</button>
         <button
           class="close-button"
@@ -171,13 +166,6 @@
         <p>Shelsy | Lara | John | Alfredo</p>
       </div>
     </div>
-
-
-   
-
-    <!-- Shelsy -->
-
-    <!-- this is where the map is contained -->
 
     <!-- jQuery must be imported before Foundation -->
     <script
