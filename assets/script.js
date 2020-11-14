@@ -138,6 +138,7 @@ function findDestination(miles, place, lat, lon) {
       $(".destinationAddress").append(randomDestination.split(" at ")[1]);
 
       findMapLatLon(randomDestination.split(" at ")[1]);
+
     });
 
 
@@ -162,6 +163,7 @@ document.querySelector("#planPiknik").addEventListener("click", function (e) {
 
   findLatLon(startingPoint, miles, food, place);
 
+  $(".startAddress").append(startingPoint);
 
 console.log(mapCoordinates);
 
